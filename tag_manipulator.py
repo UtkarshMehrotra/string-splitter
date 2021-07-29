@@ -1,11 +1,12 @@
 import re
 
 class TagManipulator():    
-    def parse_string(self, tags, regex=""):
+    def parse_string(self, tags, regex=","):
         result = []
 
         tempResult = re.split( regex, tags )
-        if( len(tempResult[0]) > 0 ):
-            result = tempResult  
+        for item in tempResult:
+            if len(item.strip())>0:
+                result.append(item.strip())
 
         return result

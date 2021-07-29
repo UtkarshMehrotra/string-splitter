@@ -39,3 +39,59 @@ def test_split_one_string_result_array_of_one():
 
     # assert
     assert result == expResult
+
+def test_split_one_string_result_array_of_two():
+    # arrange
+    stringToSplit = "java,python"
+    regex = ","
+    expResult = ["java","python"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
+
+def test_split_one_string_result_array_of_two_with_white_space():
+    # arrange
+    stringToSplit = " java, python "
+    regex = ","
+    expResult = ["java","python"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
+
+def test_split_one_string_comma_first():
+    # arrange
+    stringToSplit = ",java"
+    regex = ","
+    expResult = ["java"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
+
+def test_split_one_string_multiple_strings_multiple_commas():
+    # arrange
+    stringToSplit = ",java ,, python, ££ , C++"
+    regex = ","
+    expResult = ["java","python","££","C++"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
