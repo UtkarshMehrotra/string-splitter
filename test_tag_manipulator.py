@@ -95,3 +95,17 @@ def test_split_one_string_multiple_strings_multiple_commas():
 
     # assert
     assert result == expResult
+
+def test_split_one_string_comma_at_the_end():
+    # arrange
+    stringToSplit = "java,"
+    regex = ","
+    expResult = ["java"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
