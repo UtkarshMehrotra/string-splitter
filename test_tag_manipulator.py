@@ -109,3 +109,17 @@ def test_split_one_string_comma_at_the_end():
 
     # assert
     assert result == expResult
+
+def test_split_multiple_strings_multiple_special_characters():
+    # arrange
+    stringToSplit = "java$$,python//,C++,BASH"
+    regex = ","
+    expResult = ["java$$","python//","C++","BASH"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
